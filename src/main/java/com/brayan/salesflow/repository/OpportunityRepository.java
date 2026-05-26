@@ -1,0 +1,15 @@
+package com.brayan.salesflow.repository;
+
+import com.brayan.salesflow.entity.Opportunity;
+import com.brayan.salesflow.entity.OpportunityStatus;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface OpportunityRepository extends JpaRepository<Opportunity, Long> {
+
+    List<Opportunity> findByCustomerId(Long customerId);
+
+    List<Opportunity> findByStatus(OpportunityStatus status);
+
+}
