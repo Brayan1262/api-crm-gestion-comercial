@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salesflow-postgres
+  labels:
+    app: salesflow-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: salesflow-postgres
+  template:
+    metadata:
+      labels:
+        app: salesflow-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15
+          command: ["postgres", "-c", "wal_level=logical"]
+          env:
+            - name: POSTGRES_DB
+              value: salesflow_crm_db
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: postgres
+          ports:
+            - containerPort: 5432
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+spec:
+  selector:
+    app: salesflow-postgres
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432

@@ -1,4 +1,4 @@
-# SalesFlow CRM API 🛡️
+# API CRM Gestión Comercial🛡️
 
 > API REST tipo CRM desarrollada para la gestión comercial empresarial. Permite registrar clientes, administrar contactos, controlar oportunidades de venta, programar actividades de seguimiento y visualizar indicadores clave mediante un dashboard CRM inspirado en Salesforce.
 >

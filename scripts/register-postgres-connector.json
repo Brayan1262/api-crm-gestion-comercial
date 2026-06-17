@@ -1,0 +1,17 @@
+{
+  "name": "salesflow-postgres-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "tasks.max": "1",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "postgres",
+    "database.dbname": "salesflow_crm_db",
+    "topic.prefix": "debezium_salesflow",
+    "plugin.name": "pgoutput",
+    "publication.autocreate.mode": "filtered",
+    "table.include.list": "public.clients,public.opportunities",
+    "slot.name": "debezium_salesflow"
+  }
+}
